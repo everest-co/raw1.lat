@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights - Red Velvet Cake Recipe</title>
+    <meta name="description" content="The perfect homemade red velvet cake recipe">
+    <meta property="og:title" content="Sweet Delights - Red Velvet Cake">
+    <meta property="og:description" content="Classic red velvet cake with cream cheese frosting">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #fdf2f4;
+            color: #4a3236;
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+        }
+        .page-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+        .recipe-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 8px 40px rgba(180, 60, 80, 0.08);
+        }
+        .recipe-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .recipe-badge i {
+            font-size: 14px;
+        }
+        .recipe-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #7f1d1d;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .recipe-subtitle {
+            font-size: 18px;
+            color: #9f5555;
+            margin-bottom: 28px;
+        }
+        .recipe-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        .recipe-stats {
+            display: flex;
+            gap: 24px;
+            background: #fef2f2;
+            padding: 20px 28px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+        .stat-item i {
+            font-size: 20px;
+            color: #dc2626;
+            margin-bottom: 6px;
+        }
+        .stat-item .label {
+            display: block;
+            font-size: 12px;
+            color: #9f5555;
+            text-transform: uppercase;
+        }
+        .stat-item .value {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #7f1d1d;
+        }
+        .recipe-intro {
+            font-size: 17px;
+            margin-bottom: 32px;
+            color: #5a3a3e;
+        }
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #7f1d1d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #fecaca;
+        }
+        .ingredients-list {
+            list-style: none;
+            margin-bottom: 36px;
+        }
+        .ingredients-list li {
+            padding: 14px 0;
+            border-bottom: 1px dashed #fecaca;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .ingredients-list li:last-child {
+            border-bottom: none;
+        }
+        .ingredients-list li i {
+            color: #dc2626;
+            font-size: 14px;
+        }
+        .ingredients-list strong {
+            color: #7f1d1d;
+        }
+        .instructions-list {
+            list-style: none;
+            counter-reset: steps;
+            margin-bottom: 32px;
+        }
+        .instructions-list li {
+            counter-increment: steps;
+            padding: 16px 0 16px 56px;
+            position: relative;
+            font-size: 16px;
+            border-bottom: 1px solid #fee2e2;
+        }
+        .instructions-list li:last-child {
+            border-bottom: none;
+        }
+        .instructions-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #fef3c7, #fef9c3);
+            border-left: 4px solid #f59e0b;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 32px 0;
+        }
+        .tip-box strong {
+            color: #92400e;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #78350f;
+            font-size: 15px;
+        }
+        .share-section {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid #fee2e2;
+        }
+        .share-section p {
+            font-size: 14px;
+            color: #9f5555;
+            margin-bottom: 12px;
+        }
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .share-icons a {
+            width: 44px;
+            height: 44px;
+            background: #fef2f2;
+            color: #dc2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .share-icons a:hover {
+            background: #dc2626;
+            color: #fff;
+        }
+        .site-footer {
+            background: #7f1d1d;
+            text-align: center;
+            padding: 36px 20px;
+            margin-top: 48px;
+            font-size: 13px;
+            color: #fecaca;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover {
+            color: #fecaca;
+        }
+        @media (max-width: 640px) {
+            .recipe-card {
+                padding: 28px 20px;
+            }
+            .recipe-title {
+                font-size: 30px;
+            }
+            .recipe-stats {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .stat-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <article class="recipe-card">
+            <span class="recipe-badge">
+                <i class="fa-solid fa-star"></i>
+                Popular Recipe
+            </span>
+
+            <h1 class="recipe-title">Classic Red Velvet Cake</h1>
+            <p class="recipe-subtitle">with Cream Cheese Frosting</p>
+
+            <img src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=800&q=80" alt="Red velvet cake with cream cheese frosting" class="recipe-image">
+
+            <div class="recipe-stats">
+                <div class="stat-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <span class="label">Prep Time</span>
+                    <span class="value">25 min</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-fire-burner"></i>
+                    <span class="label">Cook Time</span>
+                    <span class="value">30 min</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span class="label">Servings</span>
+                    <span class="value">12</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span class="label">Difficulty</span>
+                    <span class="value">Medium</span>
+                </div>
+            </div>
+
+            <p class="recipe-intro">This classic red velvet cake is moist, tender, and topped with the most decadent cream cheese frosting. A timeless favorite for birthdays, holidays, or any special occasion!</p>
+
+            <h2 class="section-heading">Ingredients</h2>
+            <ul class="ingredients-list">
+                <li><i class="fa-solid fa-circle"></i><strong>All-purpose flour</strong> — 2 1/2 cups, sifted</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Granulated sugar</strong> — 1 1/2 cups</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Buttermilk</strong> — 1 cup, room temperature</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Vegetable oil</strong> — 1/2 cup</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Large eggs</strong> — 2, room temperature</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Red food coloring</strong> — 2 tablespoons</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Cocoa powder</strong> — 2 tablespoons</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Vanilla extract</strong> — 1 teaspoon</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Baking soda</strong> — 1 teaspoon</li>
+                <li><i class="fa-solid fa-circle"></i><strong>White vinegar</strong> — 1 teaspoon</li>
+                <li><i class="fa-solid fa-circle"></i><strong>Salt</strong> — 1/2 teaspoon</li>
+            </ul>
+
+            <h2 class="section-heading">Instructions</h2>
+            <ol class="instructions-list">
+                <li>Preheat your oven to 350°F (175°C). Grease and flour two 9-inch round cake pans.</li>
+                <li>In a large bowl, whisk together the flour, sugar, cocoa powder, and salt until combined.</li>
+                <li>In another bowl, mix the buttermilk, oil, eggs, vanilla, and red food coloring.</li>
+                <li>Gradually add the wet ingredients to the dry ingredients, mixing until just combined.</li>
+                <li>In a small bowl, combine the baking soda and vinegar. Fold into the batter immediately.</li>
+                <li>Divide the batter evenly between the prepared pans and bake for 28-32 minutes.</li>
+                <li>Let cool completely before frosting with your favorite cream cheese frosting.</li>
+            </ol>
+
+            <div class="tip-box">
+                <p><strong>Baker's Tip:</strong> For the best results, make sure all your ingredients are at room temperature before starting. This helps create a smoother batter and more even baking!</p>
+            </div>
+
+            <div class="share-section">
+                <p>Share this recipe with friends</p>
+                <div class="share-icons">
+                    <a href="#" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Share on Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Share on Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Share via Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="site-footer">
+        <nav class="footer-nav">
+            <a href="footer/privacy.html">Privacy Policy</a>
+            <a href="footer/terms.html">Terms of Use</a>
+            <a href="footer/disclaimer.html">Disclaimer</a>
+        </nav>
+        <p>Copyright 2025 Sweet Delights. All rights reserved.</p>
+    </footer>
+</body>
+</html>
